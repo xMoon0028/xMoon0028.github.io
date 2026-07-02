@@ -2,110 +2,358 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Stephen Xavier Mendoza | Portfolio</title>
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <!-- Typed.js -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MoonDev | Portfolio</title>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+
   <style>
     :root {
-      --primary: #fff;
-      --dark: #0a0a0a;
-      --gray: #999;
+      --bg: #070707;
+      --bg-soft: #101010;
+      --card: #141414;
+      --text: #ffffff;
+      --muted: #a7a7a7;
+      --border: rgba(255, 255, 255, 0.1);
       --accent: #00ffe0;
+      --accent-soft: rgba(0, 255, 224, 0.12);
+      --shadow: 0 20px 50px rgba(0, 255, 224, 0.08);
     }
 
     * {
-      scroll-behavior: smooth;
       box-sizing: border-box;
+      scroll-behavior: smooth;
     }
 
     body {
       margin: 0;
       font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-      background-color: var(--dark);
-      color: var(--primary);
+      background:
+        radial-gradient(circle at top left, rgba(0, 255, 224, 0.12), transparent 30%),
+        linear-gradient(180deg, #050505, var(--bg));
+      color: var(--text);
       line-height: 1.6;
     }
 
-    /* Navbar */
+    a {
+      color: inherit;
+    }
+
     header {
-      background: rgba(0, 0, 0, 0.85);
-      padding: 1rem 2rem;
       position: fixed;
       top: 0;
       left: 0;
       right: 0;
       z-index: 1000;
-      border-bottom: 1px solid #111;
-      backdrop-filter: blur(10px);
+      background: rgba(7, 7, 7, 0.78);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
     }
 
     nav {
+      max-width: 1180px;
+      margin: auto;
+      padding: 1rem 1.5rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      max-width: 1200px;
-      margin: auto;
     }
 
-    nav h1 {
-      font-size: 1.5rem;
-      font-weight: bold;
+    .brand {
+      font-size: 1.4rem;
+      font-weight: 800;
       color: var(--accent);
+      letter-spacing: 0.5px;
+    }
+
+    .brand span {
+      color: var(--text);
     }
 
     nav ul {
       list-style: none;
       display: flex;
-      gap: 25px;
+      gap: 1.5rem;
       margin: 0;
       padding: 0;
     }
 
-    nav ul li a {
+    nav a {
       text-decoration: none;
-      color: var(--primary);
-      position: relative;
-      transition: color 0.3s;
+      color: var(--muted);
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: 0.3s;
     }
 
-    nav ul li a.active,
-    nav ul li a:hover {
+    nav a:hover,
+    nav a.active {
       color: var(--accent);
     }
 
-    nav ul li a.active::after,
-    nav ul li a:hover::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: -5px;
-      width: 100%;
-      height: 2px;
-      background: var(--accent);
-    }
-
-    /* Mobile Nav (hidden by default) */
     .menu-toggle {
       display: none;
-      font-size: 1.5rem;
-      color: var(--primary);
+      font-size: 1.4rem;
       cursor: pointer;
+    }
+
+    section {
+      max-width: 1180px;
+      margin: auto;
+      padding: 6rem 1.5rem;
+    }
+
+    #hero {
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      padding-top: 8rem;
+    }
+
+    .hero-content {
+      max-width: 850px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 14px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      color: var(--accent);
+      background: var(--accent-soft);
+      font-size: 0.9rem;
+      margin-bottom: 1.3rem;
+    }
+
+    #hero h1 {
+      font-size: clamp(2.4rem, 6vw, 5rem);
+      line-height: 1.1;
+      margin: 0 0 1rem;
+    }
+
+    #hero p {
+      color: var(--muted);
+      font-size: 1.15rem;
+      max-width: 720px;
+      margin: auto;
+    }
+
+    .hero-actions {
+      margin-top: 2rem;
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 13px 24px;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 700;
+      transition: 0.3s;
+      border: 1px solid var(--border);
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #000;
+    }
+
+    .btn-outline {
+      color: var(--text);
+      background: rgba(255, 255, 255, 0.04);
+    }
+
+    .btn:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow);
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .section-title h2 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      margin: 0;
+    }
+
+    .section-title p {
+      color: var(--muted);
+      max-width: 650px;
+      margin: 0.8rem auto 0;
+    }
+
+    .about-card {
+      background: linear-gradient(145deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 2rem;
+      box-shadow: var(--shadow);
+      text-align: center;
+    }
+
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+      margin-top: 1.5rem;
+    }
+
+    .skills span {
+      background: var(--bg-soft);
+      border: 1px solid var(--border);
+      color: var(--accent);
+      padding: 9px 14px;
+      border-radius: 999px;
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .project-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      padding: 1.7rem;
+      position: relative;
+      overflow: hidden;
+      transition: 0.35s ease;
+      opacity: 0;
+      transform: translateY(35px);
+    }
+
+    .project-card.visible,
+    .fade.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .project-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at top right, var(--accent-soft), transparent 35%);
+      opacity: 0;
+      transition: 0.35s;
+    }
+
+    .project-card:hover::before {
+      opacity: 1;
+    }
+
+    .project-card:hover {
+      transform: translateY(-8px);
+      border-color: rgba(0, 255, 224, 0.5);
+      box-shadow: var(--shadow);
+    }
+
+    .project-card * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .project-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      color: #000;
+      background: var(--accent);
+      font-size: 1.25rem;
+      margin-bottom: 1rem;
+    }
+
+    .project-card h3 {
+      margin: 0 0 0.7rem;
+      color: var(--text);
+      font-size: 1.15rem;
+    }
+
+    .project-card p {
+      color: var(--muted);
+      margin: 0;
+      font-size: 0.95rem;
+    }
+
+    .contact-box {
+      text-align: center;
+      background: linear-gradient(145deg, rgba(0,255,224,0.12), rgba(255,255,255,0.03));
+      border: 1px solid var(--border);
+      border-radius: 26px;
+      padding: 2.5rem 1.5rem;
+    }
+
+    .contact-links {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 1.5rem;
+    }
+
+    .contact-links a {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+      background: var(--bg-soft);
+      border: 1px solid var(--border);
+      padding: 12px 18px;
+      border-radius: 999px;
+      color: var(--text);
+      transition: 0.3s;
+      font-weight: 600;
+    }
+
+    .contact-links a:hover {
+      background: var(--accent);
+      color: #000;
+      transform: translateY(-4px);
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      color: var(--muted);
+      border-top: 1px solid var(--border);
+      background: #050505;
+    }
+
+    .fade {
+      opacity: 0;
+      transform: translateY(35px);
+      transition: 0.6s ease;
     }
 
     @media (max-width: 768px) {
       nav ul {
+        position: absolute;
+        top: 68px;
+        left: 1rem;
+        right: 1rem;
         display: none;
         flex-direction: column;
-        gap: 15px;
-        background: #111;
-        position: absolute;
-        top: 60px;
-        right: 20px;
-        padding: 1rem 2rem;
-        border-radius: 8px;
+        background: rgba(15, 15, 15, 0.98);
+        border: 1px solid var(--border);
+        border-radius: 18px;
+        padding: 1.2rem;
       }
 
       nav ul.show {
@@ -115,160 +363,33 @@
       .menu-toggle {
         display: block;
       }
-    }
 
-    /* Sections */
-    section {
-      padding: 6rem 2rem;
-      max-width: 1100px;
-      margin: auto;
-    }
-
-    /* Hero */
-    #hero {
-      text-align: center;
-      padding: 10rem 2rem 6rem;
-      background: linear-gradient(180deg, #000, #0a0a0a);
-    }
-
-    #hero h1 {
-      font-size: 2.8rem;
-      margin-bottom: 1rem;
-    }
-
-    #hero p {
-      font-size: 1.2rem;
-      color: var(--gray);
-    }
-
-    #hero .cta-btn {
-      margin-top: 2rem;
-      display: inline-block;
-      padding: 12px 25px;
-      background: var(--accent);
-      color: #000;
-      font-weight: bold;
-      border-radius: 30px;
-      text-decoration: none;
-      transition: all 0.3s;
-    }
-
-    #hero .cta-btn:hover {
-      background: #00ccb6;
-      transform: translateY(-3px);
-    }
-
-    h2 {
-      text-align: center;
-      font-size: 2.2rem;
-      margin-bottom: 2rem;
-      opacity: 0;
-      transform: translateY(30px);
-      transition: all 0.6s ease-out;
-    }
-
-    h2.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    /* Projects */
-    .projects {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 25px;
-    }
-
-    .project-card {
-      background: #111;
-      border: 1px solid #222;
-      border-radius: 12px;
-      padding: 1.8rem;
-      transition: all 0.4s ease;
-      opacity: 0;
-      transform: translateY(40px);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .project-card.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .project-card:hover {
-      transform: translateY(-8px);
-      border-color: var(--accent);
-      box-shadow: 0 8px 25px rgba(0, 255, 224, 0.1);
-    }
-
-    .project-card h3 {
-      margin-top: 0;
-      color: var(--accent);
-    }
-
-    /* Contact */
-    #contact {
-      text-align: center;
-    }
-
-    .contact-links {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 15px;
-      margin-top: 2rem;
-    }
-
-    .contact-links a {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      text-decoration: none;
-      color: var(--primary);
-      background: #111;
-      padding: 12px 20px;
-      border-radius: 30px;
-      font-weight: 500;
-      transition: background 0.3s, transform 0.2s;
-    }
-
-    .contact-links a:hover {
-      background: var(--accent);
-      color: #000;
-      transform: translateY(-3px);
-    }
-
-    /* Footer */
-    footer {
-      text-align: center;
-      padding: 2rem;
-      border-top: 1px solid #111;
-      color: var(--gray);
-      background: #0a0a0a;
-    }
-
-    /* Mobile tweaks */
-    @media (max-width: 600px) {
-      #hero h1 {
-        font-size: 2rem;
+      section {
+        padding: 4.5rem 1rem;
       }
-      #hero p {
-        font-size: 1rem;
-      }
+
+      .hero-actions,
       .contact-links {
         flex-direction: column;
-        gap: 10px;
+      }
+
+      .btn,
+      .contact-links a {
+        justify-content: center;
+        width: 100%;
       }
     }
   </style>
 </head>
+
 <body>
   <header>
     <nav>
-      <h1>StephenXM</h1>
-      <i class="fas fa-bars menu-toggle"></i>
-      <ul>
+      <div class="brand">Moon<span>Dev</span></div>
+
+      <i class="fas fa-bars menu-toggle" id="menuToggle"></i>
+
+      <ul id="navMenu">
         <li><a href="#hero" class="active">Home</a></li>
         <li><a href="#about">About</a></li>
         <li><a href="#projects">Projects</a></li>
@@ -278,113 +399,202 @@
   </header>
 
   <section id="hero">
-    <h1><span id="typed-name"></span></h1>
-    <p>Web-Based Applications with PHP & MySQL | Hardware Services</p>
-    <a href="#projects" class="cta-btn">View My Work</a>
+    <div class="hero-content fade">
+      <div class="badge">
+        <i class="fas fa-code"></i>
+        PHP • MySQL • Web Systems • IT Support
+      </div>
+
+      <h1><span id="typed-name"></span></h1>
+
+      <p>
+        I build practical, reliable, and user-friendly web-based systems for organizations, businesses, and communities.
+      </p>
+
+      <div class="hero-actions">
+        <a href="#projects" class="btn btn-primary">
+          <i class="fas fa-layer-group"></i>
+          View My Work
+        </a>
+
+        <a href="#contact" class="btn btn-outline">
+          <i class="fas fa-paper-plane"></i>
+          Contact Me
+        </a>
+      </div>
+    </div>
   </section>
 
   <section id="about">
-    <h2>About Me</h2>
-    <p style="text-align:center; max-width:800px; margin:auto;">
-      I specialize in developing web-based applications using PHP and MySQL. With diverse experience in both software and hardware services, I help organizations build efficient, scalable, and practical solutions.
-    </p>
+    <div class="section-title fade">
+      <h2>About Me</h2>
+      <p>Developer and IT professional focused on practical solutions.</p>
+    </div>
+
+    <div class="about-card fade">
+      <p>
+        Hi, I’m <strong>Stephen Xavier Mendoza</strong>, a web developer specializing in
+        PHP and MySQL-based applications. I create systems that help improve daily operations,
+        automate records, manage events, track attendance, process donations, and organize business workflows.
+      </p>
+
+      <div class="skills">
+        <span>PHP</span>
+        <span>MySQL</span>
+        <span>HTML</span>
+        <span>CSS</span>
+        <span>JavaScript</span>
+        <span>Web Systems</span>
+        <span>Hardware Services</span>
+        <span>IT Support</span>
+      </div>
+    </div>
   </section>
 
   <section id="projects">
-    <h2>Projects</h2>
+    <div class="section-title fade">
+      <h2>Featured Projects</h2>
+      <p>Some of the systems and applications I have developed.</p>
+    </div>
+
     <div class="projects">
       <div class="project-card">
+        <div class="project-icon"><i class="fas fa-calendar-check"></i></div>
         <h3>YouthLink: Events Management System</h3>
-        <p>A platform for managing youth events, including registrations, scheduling, and activity tracking.</p>
+        <p>A platform for managing youth events, registrations, schedules, and activity tracking.</p>
       </div>
+
       <div class="project-card">
+        <div class="project-icon"><i class="fas fa-folder-open"></i></div>
         <h3>Records Management System</h3>
-        <p>A local web-based archiving system with Google Drive integration, designed to streamline record storage and retrieval.</p>
+        <p>A local web-based archiving system with Google Drive integration for easier record storage and retrieval.</p>
       </div>
+
       <div class="project-card">
-        <h3>Point-of-Sales (POS) System</h3>
-        <p>A POS system with inventory management, discounts, sales reporting, and receipt printing.</p>
+        <div class="project-icon"><i class="fas fa-cash-register"></i></div>
+        <h3>Point-of-Sales System</h3>
+        <p>A POS system with inventory management, discounts, sales reports, and receipt printing.</p>
       </div>
+
       <div class="project-card">
+        <div class="project-icon"><i class="fas fa-hand-holding-heart"></i></div>
         <h3>Donation Management System</h3>
-        <p>A system designed to track and manage donations, donor records, and distributions with transparency.</p>
+        <p>A system for tracking donations, donor records, and distributions with improved transparency.</p>
       </div>
+
       <div class="project-card">
+        <div class="project-icon"><i class="fas fa-store"></i></div>
         <h3>E-Commerce System</h3>
-        <p>An online store app for managing products, customer accounts, and orders with a responsive design.</p>
+        <p>An online store system for managing products, customer accounts, orders, and responsive shopping pages.</p>
       </div>
+
       <div class="project-card">
+        <div class="project-icon"><i class="fas fa-user-clock"></i></div>
         <h3>Attendance Monitoring System</h3>
-        <p>A system for tracking attendance using digital logs, automating reports for schools and organizations.</p>
+        <p>A digital attendance system for tracking logs and generating reports for schools and organizations.</p>
       </div>
     </div>
   </section>
 
   <section id="contact">
-    <h2>Contact</h2>
-    <p>Let’s work together! Connect with me through:</p>
-    <div class="contact-links">
-      <a href="mailto:sxmendoza0028@gmail.com"><i class="fas fa-envelope"></i>Email</a>
-      <a href="https://www.linkedin.com/in/stephen-xavier-mendoza-099270265/" target="_blank"><i class="fab fa-linkedin"></i>LinkedIn</a>
-      <a href="https://github.com/xMoon0028/" target="_blank"><i class="fab fa-github"></i>GitHub</a>
-      <a href="https://facebook.com/FPHRYCKXZS/" target="_blank"><i class="fab fa-facebook"></i>Facebook</a>
-      <a href="https://instagram.com/_zacchaeus/" target="_blank"><i class="fab fa-instagram"></i>Instagram</a>
+    <div class="contact-box fade">
+      <h2>Let’s Work Together</h2>
+      <p>Need a website, web system, or IT support? You can reach me here:</p>
+
+      <div class="contact-links">
+        <a href="mailto:sxmendoza0028@gmail.com">
+          <i class="fas fa-envelope"></i>Email
+        </a>
+
+        <a href="https://www.linkedin.com/in/stephen-xavier-mendoza-099270265/" target="_blank" rel="noopener">
+          <i class="fab fa-linkedin"></i>LinkedIn
+        </a>
+
+        <a href="https://github.com/xMoon0028/" target="_blank" rel="noopener">
+          <i class="fab fa-github"></i>GitHub
+        </a>
+
+        <a href="https://facebook.com/FPHRYCKXZS/" target="_blank" rel="noopener">
+          <i class="fab fa-facebook"></i>Facebook
+        </a>
+
+        <a href="https://instagram.com/_zacchaeus/" target="_blank" rel="noopener">
+          <i class="fab fa-instagram"></i>Instagram
+        </a>
+      </div>
     </div>
   </section>
 
   <footer>
-    <p>&copy; 2025 Moon. All Rights Reserved.</p>
+    <p>&copy; <span id="year"></span> MoonDev. All Rights Reserved.</p>
   </footer>
 
   <script>
-    // Typed.js effect for name
-    var typed = new Typed("#typed-name", {
-      strings: ["Stephen Xavier Mendoza", "Web Developer", "IT Professional"],
-      typeSpeed: 80,
-      backSpeed: 50,
+    new Typed("#typed-name", {
+      strings: [
+        "Stephen Xavier Mendoza",
+        "Web Developer",
+        "IT Professional"
+      ],
+      typeSpeed: 75,
+      backSpeed: 45,
+      backDelay: 1200,
       loop: true
     });
 
-    // Scroll animation for project cards and headers
+    const menuToggle = document.getElementById("menuToggle");
+    const navMenu = document.getElementById("navMenu");
+
+    menuToggle.addEventListener("click", () => {
+      navMenu.classList.toggle("show");
+      menuToggle.classList.toggle("fa-bars");
+      menuToggle.classList.toggle("fa-xmark");
+    });
+
+    document.querySelectorAll("#navMenu a").forEach(link => {
+      link.addEventListener("click", () => {
+        navMenu.classList.remove("show");
+        menuToggle.classList.add("fa-bars");
+        menuToggle.classList.remove("fa-xmark");
+      });
+    });
+
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
+          entry.target.classList.add("visible");
         }
       });
-    }, { threshold: 0.2 });
+    }, {
+      threshold: 0.18
+    });
 
-    document.querySelectorAll('.project-card, h2').forEach(el => observer.observe(el));
+    document.querySelectorAll(".project-card, .fade").forEach(el => {
+      observer.observe(el);
+    });
 
-    // Active nav highlight on scroll
     const sections = document.querySelectorAll("section");
-    const navLinks = document.querySelectorAll("nav ul li a");
+    const navLinks = document.querySelectorAll("#navMenu a");
 
     window.addEventListener("scroll", () => {
       let current = "";
-      sections.forEach(sec => {
-        const top = window.scrollY;
-        if (top >= sec.offsetTop - 100) {
-          current = sec.getAttribute("id");
+
+      sections.forEach(section => {
+        if (window.scrollY >= section.offsetTop - 120) {
+          current = section.getAttribute("id");
         }
       });
 
       navLinks.forEach(link => {
         link.classList.remove("active");
-        if (link.getAttribute("href").includes(current)) {
+
+        if (link.getAttribute("href") === "#" + current) {
           link.classList.add("active");
         }
       });
     });
 
-    // Mobile menu toggle
-    const menuToggle = document.querySelector(".menu-toggle");
-    const navMenu = document.querySelector("nav ul");
-
-    menuToggle.addEventListener("click", () => {
-      navMenu.classList.toggle("show");
-    });
+    document.getElementById("year").textContent = new Date().getFullYear();
   </script>
 </body>
 </html>
-
